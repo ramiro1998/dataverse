@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+// === COLORS ===
+$color-bg: #0b0c10;
+$color-primary: #ffe81f; // amarillo Star Wars
+$color-secondary: #ffffff;
+$color-accent: #1f2833; // gris oscuro azulado
+$color-hover: #f5d742;
+$color-border: #444;
+$color-card-bg: #1b1e23;
+
+// === FONTS ===
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap");
+
+$font-heading: "Orbitron", sans-serif;
+$font-body: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+// === GLOBAL RESET & THEME ===
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $color-bg;
+  color: $color-secondary;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: $color-card-bg;
+  border: 1px solid $color-border;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  color: white;
+
+  input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding-right: 0.5rem;
+    width: 100px;
+
+    &::placeholder {
+      color: #aaa;
+    }
+  }
+
+  .material-symbols-outlined {
+    font-size: 1.2rem;
+    color: $color-primary;
+    cursor: pointer;
+  }
+}

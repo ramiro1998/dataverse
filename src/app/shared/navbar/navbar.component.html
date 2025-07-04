@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <div class="left">
+        <div class="logo" routerLink="/">DATAVERSE</div>
+
+        <span class="material-symbols-outlined hamburger" (click)="toggleMobileMenu()">menu</span>
+
+        <ul class="nav-links" [class.open]="isMobileMenuOpen">
+            <li *ngFor="let res of resources">
+                <a [routerLink]="res.route" (click)="isMobileMenuOpen = false">{{ res.name }}</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="right">
+        <div class="search-bar">
+            <input type="text" placeholder="Search..." />
+            <span class="material-symbols-outlined">search</span>
+        </div>
+
+        <button class="login-btn">Sign In</button>
+    </div>
+</nav>
