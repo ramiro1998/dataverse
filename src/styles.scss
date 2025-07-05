@@ -1,17 +1,18 @@
 // === COLORS ===
 $color-bg: #0b0c10;
-$color-primary: #ffe81f; // amarillo Star Wars
+$color-primary: #ffe81f;
 $color-secondary: #ffffff;
-$color-accent: #1f2833; // gris oscuro azulado
+$color-accent: #1f2833;
 $color-hover: #f5d742;
 $color-border: #444;
 $color-card-bg: #1b1e23;
+$card-bg: rgba(255, 255, 255, 0.05);
 
 // === FONTS ===
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap");
 
 $font-heading: "Orbitron", sans-serif;
-$font-body: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$font-body: "Golos Text", sans-serif;
 
 // === GLOBAL RESET & THEME ===
 * {
@@ -24,6 +25,9 @@ body {
   font-family: $font-body;
   background-color: $color-bg;
   color: $color-secondary;
+  background: url("/img/body.png") repeat;
+  background-size: cover;
+  // padding-top: 5rem;
 }
 
 a {

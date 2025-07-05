@@ -1,0 +1,40 @@
+@import "../../../styles.scss";
+
+.resource-card {
+  width: 100%;
+  min-height: 130px;
+  height: 100%;
+  background: $card-bg;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(4px);
+
+  &:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    border-color: $color-primary;
+  }
+
+  .overlay {
+    width: 100%;
+
+    h3 {
+      font-family: $font-heading;
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+      word-break: break-word;
+    }
+
+    span {
+      font-size: 0.85rem;
+      color: $color-secondary;
+    }
+  }
+}

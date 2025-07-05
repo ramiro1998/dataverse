@@ -1,1 +1,27 @@
-<p>home works!</p>
+<div class="home-carousel-container">
+    <div class="carousel" #carousel>
+        <div class="hero-card" *ngFor="let res of resources" (click)="goTo(res.route)"
+            [style.backgroundImage]="'url(' + res.image + ')'">
+            <div class="overlay">
+                <h2>{{ res.name }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <button class="nav-btn left" *ngIf="leftArrowVisible" (click)="scrollLeft()">❮</button>
+    <button class="nav-btn right" *ngIf="rightArrowVisible" (click)="scrollRight()">❯</button>
+</div>
+
+<!-- <div class="home-carousel-container">
+    <div class="carousel" #carousel>
+        <div class="hero-card" *ngFor="let res of resources" (click)="goTo(res.route)"
+            [style.backgroundImage]="'url(' + res.image + ')'">
+            <div class="overlay">
+                <h2>{{ res.name }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <button class="nav-btn left" *ngIf="leftArrowVisible" (click)="scrollLeft()">❮</button>
+    <button class="nav-btn right" *ngIf="rightArrowVisible" (click)="scrollRight()">❯</button>
+</div> -->

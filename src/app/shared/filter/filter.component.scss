@@ -1,0 +1,21 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  input {
+    width: 300px;
+    padding: 0.5rem 1rem;
+    border: 2px solid $border-color;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: $background-color;
+    color: $text-color;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 5px $color-primary;
+    }
+  }
+}

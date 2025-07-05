@@ -1,18 +1,24 @@
 @import "../../../styles.scss";
 
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #000000;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid $color-primary;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 1rem 2rem;
-  background-color: $color-accent;
-  border-bottom: 2px solid $color-border;
 
   .left {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 4rem;
+    margin-bottom: 0.2rem;
 
     .logo {
       font-family: $font-heading;
@@ -28,7 +34,7 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
 
       li a {
         font-weight: bold;
@@ -45,6 +51,11 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    .search-bar {
+      height: 2rem;
+      width: 10rem;
+    }
 
     .login-btn {
       background-color: transparent;
@@ -63,25 +74,18 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
 
     .left {
       flex-direction: column;
-      align-items: flex-start;
       gap: 1rem;
     }
 
     .right {
-      width: 100%;
       justify-content: space-between;
       margin-top: 1rem;
-    }
-
-    .search-bar {
-      flex: 1;
     }
 
     .login-btn {
@@ -116,11 +120,10 @@
         display: none;
         flex-direction: column;
         width: 100%;
-        margin-top: 1rem;
         padding-left: 1rem;
 
         li {
-          padding: 0.5rem 0;
+          padding: 0.1rem 0;
         }
       }
 
@@ -130,7 +133,7 @@
     }
 
     .right {
-      width: 100%;
+      margin: 0 auto;
       justify-content: space-between;
       margin-top: 1rem;
     }
