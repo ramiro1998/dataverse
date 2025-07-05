@@ -55,6 +55,18 @@
   }
 }
 
+@media (max-width: 1920px) {
+  .people-list-container {
+    padding-top: 7rem;
+
+    .pagination {
+      button {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .people-list-container {
     padding-top: 7.5rem;
@@ -72,17 +84,5 @@
 
   .grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 1920px) {
-  .people-list-container {
-    padding-top: 7rem;
-
-    .pagination {
-      button {
-        margin-top: 2rem;
-      }
-    }
   }
 }

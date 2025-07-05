@@ -15,6 +15,7 @@ export class ResourceResolver implements Resolve<{ results: ResourceItem[]; tota
         const page = 1;
         const limit = 12;
         const search = '';
+        console.log('⚠️ Recurso solicitado por el resolver:', resource);
         return this.resourceService.getResource(resource, page, limit, search);
     }
 }

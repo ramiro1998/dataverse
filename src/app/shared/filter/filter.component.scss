@@ -43,3 +43,9 @@
     margin-left: 0.5rem;
   }
 }
+
+@media (max-width: 480px) {
+  .filter-container {
+    width: 100%;
+  }
+}
