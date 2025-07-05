@@ -25,22 +25,22 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       name: 'Planets',
-      route: '/planet',
+      route: '/planets',
       image: 'img/planets.webp'
     },
     {
       name: 'Starships',
-      route: '/starship',
+      route: '/starships',
       image: 'img/starships.avif'
     },
     {
       name: 'Vehicles',
-      route: '/vehicle',
+      route: '/vehicles',
       image: 'img/vehicles.jpeg'
     },
     {
       name: 'Species',
-      route: '/specie',
+      route: '/species',
       image: 'img/species.webp'
     },
     {
@@ -58,7 +58,6 @@ export class HomeComponent implements AfterViewInit {
   }
 
   goTo(route: string) {
-    console.log('rr', route)
     this.router.navigate([route]);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResourceItem } from '../../../core/models/resource.interface';
 import { ResourceService } from '../../../core/services/resource.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-starship-list',
@@ -16,31 +17,35 @@ export class StarshipListComponent implements OnInit {
   limit = 12;
   searchQuery = '';
 
-  constructor(private resourceService: ResourceService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private resourceService: ResourceService
+  ) { }
 
   ngOnInit(): void {
-    this.loadStarship();
-  }
-
-  loadStarship(): void {
-    const page = this.currentPage;
-    const limit = this.limit;
-
-    this.resourceService.getResource('starships', page, limit, this.searchQuery).subscribe(res => {
-      this.starship = res.results;
-      this.totalPages = res.totalPages;
-    });
+    const resolved = this.route.snapshot.data['resourceData'];
+    this.starship = resolved.results;
+    this.totalPages = resolved.totalPages;
   }
 
   onSearch(term: string): void {
     this.searchQuery = term;
     this.currentPage = 1;
-    this.loadStarship();
+    this.fetchStarships();
   }
 
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages) return;
     this.currentPage = page;
-    this.loadStarship();
+    this.fetchStarships();
+  }
+
+  private fetchStarships(): void {
+    this.resourceService
+      .getResource('starships', this.currentPage, this.limit, this.searchQuery)
+      .subscribe((res) => {
+        this.starship = res.results;
+        this.totalPages = res.totalPages;
+      });
   }
 }

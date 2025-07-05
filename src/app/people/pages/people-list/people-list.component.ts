@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ResourceService } from '../../../core/services/resource.service';
 import { ResourceItem } from '../../../core/models/resource.interface';
 
@@ -17,31 +17,35 @@ export class PeopleListComponent implements OnInit {
   limit = 12;
   searchQuery = '';
 
-  constructor(private resourceService: ResourceService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private resourceService: ResourceService
+  ) { }
 
   ngOnInit(): void {
-    this.loadPeople();
-  }
-
-  loadPeople(): void {
-    const page = this.currentPage;
-    const limit = this.limit;
-
-    this.resourceService.getResource('people', page, limit, this.searchQuery).subscribe(res => {
-      this.people = res.results;
-      this.totalPages = res.totalPages;
-    });
+    const resolved = this.route.snapshot.data['resourceData'];
+    this.people = resolved.results;
+    this.totalPages = resolved.totalPages;
   }
 
   onSearch(term: string): void {
     this.searchQuery = term;
     this.currentPage = 1;
-    this.loadPeople();
+    this.fetchPeople();
   }
 
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages) return;
     this.currentPage = page;
-    this.loadPeople();
+    this.fetchPeople();
+  }
+
+  private fetchPeople(): void {
+    this.resourceService
+      .getResource('people', this.currentPage, this.limit, this.searchQuery)
+      .subscribe((res) => {
+        this.people = res.results;
+        this.totalPages = res.totalPages;
+      });
   }
 }
