@@ -1,17 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ResourceService } from '../../../core/services/resource.service';
 import { ResourceItem } from '../../../core/models/resource.interface';
+import { ResourceService } from '../../../core/services/resource.service';
 
 @Component({
-  selector: 'app-people-list',
+  selector: 'app-starship-list',
   standalone: false,
-  templateUrl: './people-list.component.html',
-  styleUrl: './people-list.component.scss'
+  templateUrl: './starship-list.component.html',
+  styleUrl: './starship-list.component.scss'
 })
-export class PeopleListComponent implements OnInit {
+export class StarshipListComponent implements OnInit {
 
-  people: ResourceItem[] = [];
+  starship: ResourceItem[] = [];
   currentPage = 1;
   totalPages = 1;
   limit = 12;
@@ -20,15 +19,15 @@ export class PeopleListComponent implements OnInit {
   constructor(private resourceService: ResourceService) { }
 
   ngOnInit(): void {
-    this.loadPeople();
+    this.loadStarship();
   }
 
-  loadPeople(): void {
+  loadStarship(): void {
     const page = this.currentPage;
     const limit = this.limit;
 
-    this.resourceService.getResource('people', page, limit, this.searchQuery).subscribe(res => {
-      this.people = res.results;
+    this.resourceService.getResource('starships', page, limit, this.searchQuery).subscribe(res => {
+      this.starship = res.results;
       this.totalPages = res.totalPages;
     });
   }
@@ -36,12 +35,12 @@ export class PeopleListComponent implements OnInit {
   onSearch(term: string): void {
     this.searchQuery = term;
     this.currentPage = 1;
-    this.loadPeople();
+    this.loadStarship();
   }
 
   changePage(page: number): void {
     if (page < 1 || page > this.totalPages) return;
     this.currentPage = page;
-    this.loadPeople();
+    this.loadStarship();
   }
 }

@@ -25,27 +25,27 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       name: 'Planets',
-      route: '/planets',
+      route: '/planet',
       image: 'img/planets.webp'
     },
     {
       name: 'Starships',
-      route: '/starships',
+      route: '/starship',
       image: 'img/starships.avif'
     },
     {
       name: 'Vehicles',
-      route: '/vehicles',
+      route: '/vehicle',
       image: 'img/vehicles.jpeg'
     },
     {
       name: 'Species',
-      route: '/species',
+      route: '/specie',
       image: 'img/species.webp'
     },
     {
       name: 'Films',
-      route: '/films',
+      route: '/film',
       image: 'img/films.webp'
     }
   ];

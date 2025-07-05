@@ -6,6 +6,7 @@ import { PeopleDetailComponent } from './pages/people-detail/people-detail.compo
 import { CardModule } from '../shared/card/card.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterModule } from '../shared/filter/filter.module';
+import { ResourceListModule } from '../shared/resource-list/resource-list.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FilterModule } from '../shared/filter/filter.module';
     PeopleRoutingModule,
     CardModule,
     HttpClientModule,
-    FilterModule
+    FilterModule,
+    ResourceListModule
   ]
 })
 export class PeopleModule { }

@@ -11,11 +11,11 @@ export class NavbarComponent {
 
   resources = [
     { name: 'People', route: '/people' },
-    { name: 'Planets', route: '/planets' },
-    { name: 'Starships', route: '/starships' },
-    { name: 'Vehicles', route: '/vehicles' },
-    { name: 'Species', route: '/species' },
-    { name: 'Films', route: '/films' },
+    { name: 'Planets', route: '/planet' },
+    { name: 'Starships', route: '/starship' },
+    { name: 'Vehicles', route: '/vehicle' },
+    { name: 'Species', route: '/specie' },
+    { name: 'Films', route: '/film' },
   ];
 
   isMobileMenuOpen = false;
