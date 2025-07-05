@@ -42,8 +42,8 @@ export class FilmListComponent implements OnInit {
 
   private fetchFilm(): void {
     this.resourceService
-      .getResource('film', this.currentPage, this.limit, this.searchQuery)
-      .subscribe((res) => {
+      .getResourceWithTitleFilter('films', this.searchQuery)
+      .subscribe((res: any) => {
         this.film = res.results;
         this.totalPages = res.totalPages;
       });

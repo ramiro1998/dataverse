@@ -1,0 +1,28 @@
+@import "../../../../styles.scss";
+
+.detail-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  background-color: $card-bg;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid $color-border;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.detail-title {
+  font-family: $font-heading;
+  color: $color-primary;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.detail-card p {
+  margin: 0.5rem 0;
+  color: $color-secondary;
+
+  strong {
+    color: $color-primary;
+  }
+}

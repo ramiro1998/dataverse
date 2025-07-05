@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Person } from '../../people/interfaces/person.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,14 @@ export class ResourceService {
       const url = `${this.baseUrl}/${resource}?page=${page}&limit=${limit}`;
       return this.http.get<any>(url).pipe(
         map((res) => {
-          const results = res.results.map((r: any) => ({
-            uid: r.uid,
-            name: r.name,
-            url: r.url
-          }));
+          const resFormatted = resource === 'films' ? 'result' : 'results';
+          const results = res[resFormatted].map((r: any) => {
+            return ({
+              uid: r.uid,
+              name: r.name ? r.name : r.properties.title,
+              url: r.url
+            })
+          });
           return {
             results,
             totalPages: res.total_pages || 1
@@ -44,5 +48,29 @@ export class ResourceService {
       );
     }
   }
+
+  getResourceWithTitleFilter(resource: string, title: string) {
+    const url = `${this.baseUrl}/${resource}?title=${title}`;
+    return this.http.get<any>(url).pipe(
+      map(res => {
+        return ({
+          results: res.result.map((item: any) => ({
+            uid: item.uid,
+            name: item.properties.title,
+            url: item.properties.url,
+            ...item.properties
+          })),
+          totalPages: 1
+        })
+      })
+    );
+  }
+
+  getOnePerson(id: string): Observable<{ properties: Person }> {
+    return this.http.get<any>(`${this.baseUrl}/people/${id}`).pipe(
+      map(res => res.result)
+    );
+  }
+
 
 }

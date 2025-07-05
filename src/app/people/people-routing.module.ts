@@ -12,7 +12,7 @@ const routes: Routes = [
       resourceData: ResourceResolver
     }
   },
-  { path: 'detail/:id', component: PeopleDetailComponent }
+  { path: ':id', component: PeopleDetailComponent }
 ];
 
 @NgModule({

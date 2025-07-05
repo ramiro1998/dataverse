@@ -14,8 +14,15 @@ export class ResourceResolver implements Resolve<{ results: ResourceItem[]; tota
         const resource = route.parent?.routeConfig?.path ?? 'people';
         const page = 1;
         const limit = 12;
-        const search = '';
-        console.log('⚠️ Recurso solicitado por el resolver:', resource);
-        return this.resourceService.getResource(resource, page, limit, search);
+        const query = route.queryParamMap.get('query') ?? '';
+
+        if (resource === 'films') {
+            if (query) {
+                return this.resourceService.getResourceWithTitleFilter(resource, query);
+            }
+            return this.resourceService.getResource(resource, 1, 1, '');
+        }
+
+        return this.resourceService.getResource(resource, page, limit, query);
     }
 }
