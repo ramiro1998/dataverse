@@ -42,7 +42,7 @@ export class VehicleListComponent implements OnInit {
 
   private fetchVehicle(): void {
     this.resourceService
-      .getResource('vehicle', this.currentPage, this.limit, this.searchQuery)
+      .getResource('vehicles', this.currentPage, this.limit, this.searchQuery)
       .subscribe((res) => {
         this.vehicle = res.results;
         this.totalPages = res.totalPages;

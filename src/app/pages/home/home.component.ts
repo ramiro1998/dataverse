@@ -21,7 +21,7 @@ export class HomeComponent implements AfterViewInit {
     {
       name: 'People',
       route: '/people',
-      image: 'img/people.avif'
+      image: 'img/people.png'
     },
     {
       name: 'Planets',
@@ -41,7 +41,7 @@ export class HomeComponent implements AfterViewInit {
     {
       name: 'Species',
       route: '/species',
-      image: 'img/species.webp'
+      image: 'img/species.jpg'
     },
     {
       name: 'Films',

@@ -10,7 +10,7 @@ import { ResourceOne } from '../../../core/models/resource.interface';
   standalone: false
 })
 export class PeopleDetailComponent implements OnInit {
-  person?: ResourceOne;
+  person!: ResourceOne;
   fields = [
     { label: 'Gender', key: 'gender' },
     { label: 'Birth Year', key: 'birth_year' },

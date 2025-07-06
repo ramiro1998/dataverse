@@ -7,3 +7,9 @@ export interface ResourceItem {
 export interface ResourceOne {
     [key: string]: string;
 }
+export interface ResourceDetail {
+    label: string;
+    key: string;
+    suffix?: string;
+    truncate?: boolean;
+}

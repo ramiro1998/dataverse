@@ -1,0 +1,27 @@
+<div class="container-main">
+    <button class="back-btn" [routerLink]="['/' + resourceType]">
+        <span class="material-symbols-outlined">arrow_back</span>
+    </button>
+
+    <div *ngIf="resource" class="container-resource">
+        <div class="detail-header">
+            <div class="avatar-placeholder">
+                <span class="material-symbols-outlined">person</span>
+            </div>
+            <div class="detail-title">
+                <h2>{{ title }}</h2>
+            </div>
+        </div>
+        <div class="detail-grid">
+            <div class="detail-item" *ngFor="let field of fields">
+                <strong>{{ field.label }}:</strong>
+                <span *ngIf="field.truncate; else normalText">
+                    {{ resource[field.key] | truncate:90 }}
+                </span>
+                <ng-template #normalText>
+                    {{ resource[field.key] }}{{ field.suffix || '' }}
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>

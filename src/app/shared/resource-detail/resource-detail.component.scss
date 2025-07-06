@@ -1,0 +1,143 @@
+@import "../../../styles.scss";
+
+.container-main {
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  :host {
+    display: block;
+  }
+
+  .container-resource {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding-left: 1rem;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    .material-symbols-outlined {
+      font-size: 2.5rem;
+    }
+
+    &:hover {
+      color: $color-hover;
+    }
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+
+    .avatar-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: $color-card-bg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .material-symbols-outlined {
+        font-size: 2.5rem;
+      }
+    }
+
+    h2 {
+      font-family: $font-heading;
+      font-size: 2rem;
+    }
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+
+    .detail-item {
+      background-color: $color-card-bg;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      height: 66px;
+
+      strong {
+        color: $color-primary;
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
+  .detail-grid {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #000;
+
+    &.male {
+      background-color: #3fa9f5;
+    }
+
+    &.female {
+      background-color: #f78fb3;
+    }
+
+    &.n\/a,
+    &.n-a,
+    &.none {
+      background-color: #888;
+      color: #fff;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-main {
+    padding-top: 8rem;
+  }
+}

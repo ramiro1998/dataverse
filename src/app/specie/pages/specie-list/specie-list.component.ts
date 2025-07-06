@@ -42,7 +42,7 @@ export class SpecieListComponent implements OnInit {
 
   private fetchSpecie(): void {
     this.resourceService
-      .getResource('specie', this.currentPage, this.limit, this.searchQuery)
+      .getResource('species', this.currentPage, this.limit, this.searchQuery)
       .subscribe((res) => {
         this.specie = res.results;
         this.totalPages = res.totalPages;

@@ -23,7 +23,6 @@ export class FilmListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('entrando?')
     const resolved = this.route.snapshot.data['resourceData'];
     this.film = resolved.results;
     this.totalPages = resolved.totalPages;
