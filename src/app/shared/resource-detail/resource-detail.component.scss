@@ -82,6 +82,7 @@
       display: flex;
       align-items: center;
       height: 66px;
+      word-break: break-word;
 
       strong {
         color: $color-primary;

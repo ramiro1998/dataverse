@@ -21,7 +21,7 @@ export class HomeComponent implements AfterViewInit {
     {
       name: 'People',
       route: '/people',
-      image: 'img/people.png'
+      image: 'img/people.jpg'
     },
     {
       name: 'Planets',
