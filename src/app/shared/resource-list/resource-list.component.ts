@@ -19,11 +19,6 @@ export class ResourceListComponent {
   @Output() pageChange = new EventEmitter<number>();
   @Output() search = new EventEmitter<string>();
 
-  ngOnInit(): void {
-    console.log('resourceType', this.resourceType)
-
-  }
-
   onSearch(term: any) {
     this.search.emit(term);
   }

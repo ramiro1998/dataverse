@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ResourceService } from '../../../core/services/resource.service';
-import { Person } from '../../interfaces/person.interface';
+import { ResourceOne } from '../../../core/models/resource.interface';
 
 @Component({
   selector: 'app-people-detail',
@@ -10,19 +10,26 @@ import { Person } from '../../interfaces/person.interface';
   standalone: false
 })
 export class PeopleDetailComponent implements OnInit {
-  person?: Person;
+  person?: ResourceOne;
+  fields = [
+    { label: 'Gender', key: 'gender' },
+    { label: 'Birth Year', key: 'birth_year' },
+    { label: 'Height', key: 'height', suffix: ' cm' },
+    { label: 'Mass', key: 'mass', suffix: ' kg' },
+    { label: 'Hair Color', key: 'hair_color' },
+    { label: 'Eye Color', key: 'eye_color' },
+    { label: 'Skin Color', key: 'skin_color' },
+    { label: 'Homeworld', key: 'homeworld' }
+  ];
+
 
   constructor(
     private route: ActivatedRoute,
-    private resourceService: ResourceService
   ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.resourceService.getOnePerson(id).subscribe(res => {
-        this.person = res.properties;
-      });
-    }
+    this.route.data.subscribe((data) => {
+      this.person = data['person'].result.properties;
+    });
   }
 }

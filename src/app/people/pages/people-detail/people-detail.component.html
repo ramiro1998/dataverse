@@ -1,13 +1,23 @@
-<div class="detail-container" *ngIf="person">
-    <h2 class="detail-title">{{ person.name }}</h2>
-    <div class="detail-card">
-        <p><strong>Gender:</strong> {{ person.gender }}</p>
-        <p><strong>Birth Year:</strong> {{ person.birth_year }}</p>
-        <p><strong>Height:</strong> {{ person.height }} cm</p>
-        <p><strong>Mass:</strong> {{ person.mass }} kg</p>
-        <p><strong>Hair Color:</strong> {{ person.hair_color }}</p>
-        <p><strong>Eye Color:</strong> {{ person.eye_color }}</p>
-        <p><strong>Skin Color:</strong> {{ person.skin_color }}</p>
-        <p><strong>Homeworld:</strong> {{ person.homeworld }}</p>
+<div class="container-main">
+    <div class="container-back-button">
+        <a routerLink="/people" class="back-icon" aria-label="Back">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+    </div>
+
+    <div *ngIf="person" class="container-resource">
+        <div class="detail-header">
+            <div class="avatar-placeholder">
+                <span class="material-symbols-outlined">person</span>
+            </div>
+            <h2>{{ person['name'] }}</h2>
+        </div>
+
+        <div class="detail-grid">
+            <div class="detail-item" *ngFor="let field of fields">
+                <strong>{{ field.label }}:</strong>
+                {{ person[field.key] }}{{ field.suffix || '' }}
+            </div>
+        </div>
     </div>
 </div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PeopleListComponent } from './pages/people-list/people-list.component';
 import { PeopleDetailComponent } from './pages/people-detail/people-detail.component';
 import { ResourceResolver } from '../core/resolvers/resource.resolver';
+import { ResourceDetailResolver } from '../core/resolvers/resource-detail.resolver';
 
 const routes: Routes = [
   {
@@ -12,7 +13,12 @@ const routes: Routes = [
       resourceData: ResourceResolver
     }
   },
-  { path: ':id', component: PeopleDetailComponent }
+  {
+    path: ':id', component: PeopleDetailComponent,
+    resolve: {
+      person: ResourceDetailResolver
+    }
+  }
 ];
 
 @NgModule({

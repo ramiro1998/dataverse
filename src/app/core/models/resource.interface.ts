@@ -3,3 +3,7 @@ export interface ResourceItem {
     name: string;
     url: string;
 }
+
+export interface ResourceOne {
+    [key: string]: string;
+}

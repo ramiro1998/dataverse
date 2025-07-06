@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Person } from '../../people/interfaces/person.interface';
+import { ResourceOne } from '../models/resource.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -66,10 +66,8 @@ export class ResourceService {
     );
   }
 
-  getOnePerson(id: string): Observable<{ properties: Person }> {
-    return this.http.get<any>(`${this.baseUrl}/people/${id}`).pipe(
-      map(res => res.result)
-    );
+  getOne(resource: string, id: string): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/${resource}/${id}`);
   }
 
 

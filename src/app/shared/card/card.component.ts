@@ -16,7 +16,6 @@ export class CardComponent {
   constructor(private router: Router) { }
 
   goToDetail() {
-    console.log('reso', this.resourceType)
     this.router.navigate([`/${this.resourceType}/${this.uid}`]);
   }
 

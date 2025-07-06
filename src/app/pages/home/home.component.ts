@@ -45,7 +45,7 @@ export class HomeComponent implements AfterViewInit {
     },
     {
       name: 'Films',
-      route: '/film',
+      route: '/films',
       image: 'img/films.webp'
     }
   ];

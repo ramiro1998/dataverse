@@ -1,28 +1,118 @@
 @import "../../../../styles.scss";
 
-.detail-container {
-  max-width: 700px;
-  margin: 2rem auto;
-  background-color: $card-bg;
-  padding: 2rem;
-  border-radius: 8px;
-  border: 1px solid $color-border;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
-}
+.container-main {
+  padding-top: 7rem;
+  display: flex;
+  flex-direction: column;
 
-.detail-title {
-  font-family: $font-heading;
-  color: $color-primary;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
+  .back-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding-left: 1rem;
+    font-size: 2.2rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s;
 
-.detail-card p {
-  margin: 0.5rem 0;
-  color: $color-secondary;
+    .material-symbols-outlined {
+      font-size: 2.5rem;
+    }
 
-  strong {
-    color: $color-primary;
+    &:hover {
+      color: $color-hover;
+    }
+  }
+
+  .container-resource {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    .detail-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 auto;
+
+      .avatar-placeholder {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: $color-card-bg;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .material-symbols-outlined {
+          font-size: 2.5rem;
+        }
+      }
+
+      h2 {
+        font-family: $font-heading;
+        font-size: 2rem;
+      }
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+
+      .detail-item {
+        background-color: $color-card-bg;
+        padding: 1rem;
+        border-radius: 6px;
+        border: 1px solid $color-border;
+        font-weight: 500;
+
+        strong {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+
+  .detail-card,
+  .detail-grid {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #000;
+
+    &.male {
+      background-color: #3fa9f5;
+    }
+
+    &.female {
+      background-color: #f78fb3;
+    }
+
+    &.n\/a,
+    &.n-a,
+    &.none {
+      background-color: #888;
+      color: #fff;
+    }
   }
 }
