@@ -4,6 +4,7 @@ const redirectsPath = path.join(
     __dirname,
     "dist",
     "dataverse",
+    "browser",
     "_redirects"
 );
 const redirectsContent = `/*    /index.html   200\n`;
